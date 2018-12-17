@@ -9,4 +9,10 @@
     idade int(3)
  );
  
+ UPDATE cliente SET nome_cli = 'Flavia',sobrenome_cli = 'Abreu', email_cli = 'flaviatecno@gmail.com', idade ='41' WHERE id_cli = '1';  
+ 
+ SELECT * FROM cliente;
+ 
+
  desc cliente;
+ 
