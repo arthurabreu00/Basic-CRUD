@@ -37,7 +37,7 @@ class User{
                 <span class="btn btn-primary btn-att" data-id= ${data.id_cli}> <i class="fas fa-pencil-alt"></i> </span> 
             </td>`;
 
-            document.querySelector('tbody').appendChild(tr);
+           if(document.querySelector('tbody')) document.querySelector('tbody').appendChild(tr);
         });
 
     }

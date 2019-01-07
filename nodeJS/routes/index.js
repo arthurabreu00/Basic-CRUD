@@ -11,8 +11,10 @@ router.get('/update', function(req, res, next) {
 });
 
 
-router.get('/teste', function(req, res, next) {
-  res.render('teste', { title: 'Teste' });
+router.get('/create', function(req, res, next) {
+  res.render('create', { title: 'Criar Usuarios' });
 });
+
+
 
 module.exports = router;

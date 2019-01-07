@@ -17,5 +17,12 @@
      '1','Arthur','Tavares','arthurtavares@localhost.com','19'
  );
 
+
+truncate table crud.cliente;
+
+
  desc cliente;
- 
+
+ use crud;
+ ALTER TABLE cliente AUTO_INCREMENT = 1;
+ INSERT INTO crud.cliente (nome_cli,sobrenome_cli,email_cli,idade) VALUES('Jose','Carlos','jose@local.com','12');
