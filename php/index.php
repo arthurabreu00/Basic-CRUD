@@ -1,11 +1,12 @@
 <?php
+  session_start();  
   include_once 'includes/header.php';
 ?>
 
   <h1>Clientes</h1>
 
   <?php
-    session_start();
+    
     if(isset($_SESSION['mensagem'])){
       echo $_SESSION['mensagem'];
     }
