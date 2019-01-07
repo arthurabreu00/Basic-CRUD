@@ -6,7 +6,6 @@ class CrudController{
         this.listAll();
         this._User = new User();
         this.data = User.getDataAjax();
-        // console.log('CRUD',this.data.response[1]);
     }
 
     getDataAjax(){
@@ -15,9 +14,9 @@ class CrudController{
     }
 
     initEvents(){
-        this.addEventListenerAll(document.querySelector('body'),['load','change'],fn=>{
+        this.addEventListenerAll(document.querySelector('body'),['load','change','mouseover'],fn=>{
 
-            console.log(User.getDataAjax());
+            console.log(this.data.response);
 
         });
     }
