@@ -14,7 +14,7 @@
  SELECT * FROM crud.cliente;
  
  INSERT INTO crud.cliente VALUES (
-     '2','Ana','Flavia','anaflavia@localhost.com','19'
+     '1','Arthur','Tavares','arthurtavares@localhost.com','19'
  );
 
  desc cliente;

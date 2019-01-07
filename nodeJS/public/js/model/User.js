@@ -1,36 +1,44 @@
 class User{
 
     constructor(){
-        this.data = User.getDataAjax();
-        console.log('User Direto',User.getDataAjax()); 
-        console.log('User Data',this.data);
+        
     }
-
-    // static get data(){
-    //     return this.data;
-    // }
-
-    // static set data(value){
-    //     this.data = value;
-    // }
 
 
     static getDataAjax(){
-        let httpRequest = new XMLHttpRequest();
-        let url = '/users'; 
+            var ajax = new XMLHttpRequest();
+            ajax.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+               User.listAll(JSON.parse(this.response));
+              }
+            };
+            ajax.open("GET", '/users', true);
+            ajax.send();
+          return ajax;
+    }
 
-        httpRequest.open("GET", url);
-        httpRequest.responseType = "json";
-        httpRequest.addEventListener("readystatechange", ()=> {
-        if (httpRequest.readyState == 4){
-            if (httpRequest.status == 200){
-                }
-            }
+    static listAll(dataObject){
+
+        
+
+        dataObject.forEach(data =>{
+            let tr = document.createElement('tr');
+            tr.dataset.id = data.id_cli;
+            tr.innerHTML = 
+            `<td scope="row"> ${data.id_cli} </td>
+            <td> ${data.nome_cli} </td>
+            <td> ${data.sobrenome_cli} </td>
+            <td> ${data.email_cli} </td>
+            <td> ${data.idade} </td>
+            <td> 
+                <span class="btn btn-danger btn-remove" data-id=${data.id_cli}> <i class="fas fa-trash-alt"></i> </span> 
+            </td>
+            <td> 
+                <span class="btn btn-primary btn-att" data-id= ${data.id_cli}> <i class="fas fa-pencil-alt"></i> </span> 
+            </td>`;
+
+            document.querySelector('tbody').appendChild(tr);
         });
-
-        httpRequest.send(); 
-
-        return httpRequest;
 
     }
 }
