@@ -19,8 +19,6 @@ class User{
 
     static listAll(dataObject){
 
-        
-
         dataObject.forEach(data =>{
             let tr = document.createElement('tr');
             tr.dataset.id = data.id_cli;
@@ -31,10 +29,12 @@ class User{
             <td> ${data.email_cli} </td>
             <td> ${data.idade} </td>
             <td> 
-                <span class="btn btn-danger btn-remove" data-id=${data.id_cli}> <i class="fas fa-trash-alt"></i> </span> 
+                <form method="get" action="/users/delete/${data.id_cli}">
+                    <button type="submit" class="btn btn-danger btn-remove" data-id=${data.id_cli}> <i type="submit" class="fas fa-trash-alt"></i> </button> 
+                </form>
             </td>
             <td> 
-                <span class="btn btn-primary btn-att" data-id= ${data.id_cli}> <i class="fas fa-pencil-alt"></i> </span> 
+                <button type="submit" class="btn btn-primary btn-att" data-id= ${data.id_cli}> <i class="fas fa-pencil-alt"></i> </button> 
             </td>`;
 
            if(document.querySelector('tbody')) document.querySelector('tbody').appendChild(tr);

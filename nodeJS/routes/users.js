@@ -32,13 +32,28 @@ router.post('/register',(req,res)=>{
 
       if(err) throw err;
 
-      console.log("Número de linhas afetadas:",result.affectedRows)
+      console.log("Número de linhas afetadas:",result.affectedRows);
 
     });
 
+    res.redirect('/')
 
+});
 
+router.get('/delete/:id',(req,res)=>{
 
-})  
+  let sql = "DELETE FROM cliente WHERE id_cli = ?"
+
+  conn.query(sql,[req.params.id],(err,result) =>{
+
+    if(err) throw err;
+
+    console.log("Número de linhas afetadas:",result.affectedRows);
+
+    res.redirect('/');
+
+  });
+
+});
 
 module.exports = router;
