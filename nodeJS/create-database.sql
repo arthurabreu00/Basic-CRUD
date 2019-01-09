@@ -23,6 +23,9 @@ truncate table crud.cliente;
 
  desc cliente;
 
- use crud;
+use crud;
+SELECT * FROM cliente;  
+
+
  ALTER TABLE cliente AUTO_INCREMENT = 1;
  INSERT INTO crud.cliente (nome_cli,sobrenome_cli,email_cli,idade) VALUES('Jose','Carlos','jose@local.com','12');

@@ -10,12 +10,6 @@ router.get('/', function(req, res, next) {
 
 });
 
-// router.get('/:id',(req,res)=>{
-
-//   conn.query('SELECT * FROM cliente WHERE id_cli = ?',[req.params.id],(err,rows,fileds)=>{
-//     res.json(rows);
-//   });
-// });
 
 
 router.post('/register',(req,res)=>{
@@ -42,6 +36,8 @@ router.post('/register',(req,res)=>{
 
 router.get('/delete/:id',(req,res)=>{
 
+
+
   let sql = "DELETE FROM cliente WHERE id_cli = ?"
 
   conn.query(sql,[req.params.id],(err,result) =>{
@@ -53,6 +49,27 @@ router.get('/delete/:id',(req,res)=>{
     res.redirect('/');
 
   });
+
+});
+
+
+router.post('/update',(req,res)=>{
+
+  let data = req.body;
+  let sql = `UPDATE cliente SET nome_cli = "${data.nome}" ,sobrenome_cli = "${data.sobrenome}" , email_cli = "${data.email}", idade = "${data.idade}" WHERE id_cli = "${data.id}"`;
+
+  console.log(sql);
+
+  conn.query(sql,[],(err,result) =>{
+
+    if(err) throw err;
+
+    console.log("Número de linhas afetadas:",result.affectedRows);
+
+    res.redirect('/');
+
+  });
+
 
 });
 
